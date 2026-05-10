@@ -204,18 +204,47 @@ App runs on `http://localhost:5173`
 
 ## 🚀 Deployment
 
-### Frontend (Vercel/Netlify)
+### Quick Deployment Options
+
+**Option 1: Docker (Recommended)**
 ```bash
-cd client
-npm run build
-# Deploy dist/ folder
+docker-compose up --build
 ```
 
-### Backend (Heroku/Railway)
+**Option 2: Railway + Vercel (Production)**
+- Backend: [Deploy to Railway](https://railway.app/new)
+- Frontend: [Deploy to Vercel](https://vercel.com/new)
+- Database: [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+
+**Option 3: Heroku**
 ```bash
-# Set environment variables in platform
-# Push to repository
+heroku login
+heroku create your-app-name
+git push heroku main
 ```
+
+For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md)
+
+### Environment Variables for Production
+```bash
+# Backend
+PORT=5000
+MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/summarizeai
+OPENAI_API_KEY=sk-...
+JWT_SECRET=your-super-secret-key
+CLIENT_URL=https://your-frontend-url.com
+
+# Frontend
+VITE_API_URL=https://your-backend-url.com
+```
+
+### Recommended Production Stack
+- **Frontend**: Vercel (Next.js compatible)
+- **Backend**: Railway / Heroku / Render
+- **Database**: MongoDB Atlas
+- **Storage**: AWS S3 (for exports)
+- **CDN**: Vercel / Cloudflare
+
 
 ## 📖 Usage Examples
 
